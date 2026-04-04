@@ -22,6 +22,11 @@ export class UserRepositoryImpl implements UserRepository {
     return found ? Object.assign(new User(), found) : null;
   }
 
+  async findByEmail(email: string): Promise<User | null> {
+    const found = await this.repo.findOne({ where: { email } });
+    return found ? Object.assign(new User(), found) : null;
+  }
+
   async findAll(): Promise<User[]> {
     const all = await this.repo.find();
     return all.map(u => Object.assign(new User(), u));

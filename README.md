@@ -49,6 +49,12 @@ nest g service modules/users/application/use-cases/create-user --flat --no-spec
 
 ## Probar API con cURL
 
+### Health Check
+
+```bash
+curl http://localhost:3000/health
+```
+
 ### Users
 
 #### GET - Obtener todos

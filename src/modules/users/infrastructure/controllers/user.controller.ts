@@ -1,9 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { CreateUserService } from '../../application/use-cases/create-user.service';
 import { GetUsersService } from '../../application/use-cases/get-users.service';
 import { GetUserService } from '../../application/use-cases/get-user.service';
 import { UpdateUserService } from '../../application/use-cases/update-user.service';
 import { DeleteUserService } from '../../application/use-cases/delete-user.service';
+import { LoginUserService } from '../../application/use-cases/login-user.service';
 import { CreateUserDto } from '../../application/dtos/create-user.dto';
 import { UpdateUserDto } from '../../application/dtos/update-user.dto';
 
@@ -15,7 +16,13 @@ export class UserController {
     private readonly getUser: GetUserService,
     private readonly updateUser: UpdateUserService,
     private readonly deleteUser: DeleteUserService,
+    private readonly loginUser: LoginUserService,
   ) {}
+
+  @Post('login')
+  login(@Body() body: { email: string; password: string }) {
+    return this.loginUser.execute(body.email, body.password);
+  }
 
   @Post()
   create(@Body() dto: CreateUserDto) {

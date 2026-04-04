@@ -8,6 +8,7 @@ import { GetUsersService } from './application/use-cases/get-users.service';
 import { GetUserService } from './application/use-cases/get-user.service';
 import { UpdateUserService } from './application/use-cases/update-user.service';
 import { DeleteUserService } from './application/use-cases/delete-user.service';
+import { LoginUserService } from './application/use-cases/login-user.service';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserOrmEntity])],
@@ -19,6 +20,7 @@ import { DeleteUserService } from './application/use-cases/delete-user.service';
     GetUserService,
     UpdateUserService,
     DeleteUserService,
+    LoginUserService,
   ],
 })
 export class UsersModule {}
