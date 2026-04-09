@@ -1,0 +1,15 @@
+permissions:
+  contents: read  
+  
+on:
+  push:
+    branches: [ "main" ,"test", "stagin"]
+  workflow_dispatch:
+
+jobs:
+  init:
+    name: CI Workflow
+    uses: codeparceorg/ci-workflows/.github/workflows/node-init.yml@container-app
+    with:
+      node-version: 22
+    secrets: inherit
