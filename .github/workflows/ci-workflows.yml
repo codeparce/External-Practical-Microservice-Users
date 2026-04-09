@@ -9,5 +9,5 @@ on:
 jobs:
   init:
     name: CI Workflow
-    uses: codeparceorg/ci-workflows/.github/workflows/node-init.yml@container-app
+    uses: codeparce/ci-workflows/.github/workflows/node-init.yml@container-app
     secrets: inherit
