@@ -6,7 +6,7 @@ on:
     branches: [ "main" ,"test", "stagin"]
   workflow_dispatch:
 
-jobs:
+jobs: 
   init:
     name: CI Workflow
     uses: codeparce/ci-workflows/.github/workflows/node-init.yml@container-app
